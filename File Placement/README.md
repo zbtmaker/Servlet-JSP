@@ -1,7 +1,7 @@
 # 文件部署
 * [文件放置规则](#文件放置规则)
 * [正确访问方式](#正确访问方式)
-* [映射和匹配](#映射和匹配)
+* [Servlet映射和URL匹配](#Servlet映射和URL匹配)
 * [根据URL查找对应Servlet](#根据URL查找对应Servlet)
 * [Servlet初始化](#Servlet初始化)
 ## 文件放置规则
@@ -25,7 +25,7 @@ http://localhost:8080/examples/index.html
 ```Java
 http://localhost:8080/examples/INF/web.xml
 ```
-## 映射和匹配
+## Servlet映射和URL匹配
 一个servlet映射可以对应多个URL，如下所示：
 
 ```Java
@@ -196,5 +196,3 @@ Whisky >> Brandy >> Beer
 ```Java
 Whisky >> Beer >> Brandy
 ```
-
-
