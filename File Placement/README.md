@@ -117,7 +117,7 @@ Conclusion:首先我们的url会通过完全匹配的方式进行匹配，发现
  ```Java
  <load-on-startup>1</load-on-startup>
  ```
-其中只要`<load-on-startup>`中的元素值大于0，那么我们servlet就会随着服务器的启动开始启动。
+其中只要`<load-on-startup>`中的元素值大于0，那么我们servlet就会随着服务器的启动开始启动
 * 元素值的大小代表的启动的顺序，当有多个servlet随着服务器启东时，元素值越小越早启动
 ```Java
 <servlet>
@@ -150,12 +150,10 @@ Conclusion:首先我们的url会通过完全匹配的方式进行匹配，发现
   <url-pattern>Brandy/Select.do</url-pattern>
 </servlet-mapping>
 ```  
-
 从上面的配置文件我们可以看出，启动的顺序分别为
 ```Java
 Beer >> Brandy >> Whisky
 ```
-
 * 当有多个servlet的`<load-on-startup>`的元素值相同时，元素值相同的servlet启动的顺序按照映射代码在配置文件中的位置由上至下执行，元素值不同的按照前面一条规则执行
 ```Java
 <servlet>
@@ -190,7 +188,7 @@ Beer >> Brandy >> Whisky
 ``` 
 从上面的配置文件我们可以看出，启动的顺序分别为
 ```Java
-Beer >> Brandy >> Whisky
+Whisky >> Beer >> Brandy
 ```
 
 
