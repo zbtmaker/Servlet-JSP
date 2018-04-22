@@ -76,7 +76,8 @@ http://localhost:8080/com/example/BeerSelectServlet/Beer/SelectBeer
   <url-pattern>/Beer/`*`</url-pattern>
 </servlet-mapping>
 ```
-此时输入的URL为：
+此时输入的URL为:
+
 ```Java
 http://localhost:8080/com/example/BeerSelectServlet/Beer/SelectBeer
 ```
