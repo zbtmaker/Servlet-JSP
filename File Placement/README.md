@@ -67,6 +67,7 @@ http://localhost:8080/com/example/BeerSelectServlet/Beer/SelectBeer
 ```
 
 * 目录匹配:url-pattern中的属性以/开头，以`*`结尾
+```Java
 <servlet>
   <servlet-name>Beer</servlet-name>
   <servlet-class>com.example.BeerSelectServlet</servlet-class>
@@ -77,8 +78,25 @@ http://localhost:8080/com/example/BeerSelectServlet/Beer/SelectBeer
 </servlet-mapping>
 ```
 此时输入的URL为:
-
 ```Java
 http://localhost:8080/com/example/BeerSelectServlet/Beer/SelectBeer
 ```
+我们的Beer/SelectBeer与url-pattern中的/Beer相匹配，然后发现SelectBeer没有完全匹配的url-pattern,因此就只能与这个进行相匹配
+
+* 扩展名匹配：以`*`开头，以扩展名结尾。首先我们的url会通过完全匹配的方式进行匹配，发现完全匹配不成功后，采用目录匹配的方式继续与servlet当中的url-pattern进行匹配，当目录匹配也失败后，则采用扩展名进行匹配。最后如果扩展名也匹配失败，那么我们就需要返回一个404状态码
+```Java
+<servlet>
+  <servlet-name>Beer</servlet-name>
+  <servlet-class>com.example.BeerSelectServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Beer</servlet-name>
+  <url-pattern>*.do</url-pattern>
+</servlet-mapping>
+```
+此时输入的URL为：
+```Java
+http://localhost:8080/com/example/BeerSelectServlet/Beer/SelectBeer.do
+```
+
 
