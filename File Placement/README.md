@@ -149,7 +149,7 @@ Conclusion:首先我们的url会通过完全匹配的方式进行匹配，发现
   <servlet-name>Brandy</servlet-name>
   <url-pattern>Brandy/Select.do</url-pattern>
 </servlet-mapping>
-```  
+  
 从上面的配置文件我们可以看出，启动的顺序分别为
 ```Java
 Beer >> Brandy >> Whisky
