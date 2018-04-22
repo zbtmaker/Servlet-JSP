@@ -1,4 +1,7 @@
 # 文件部署
+* [文件放置规则](#文件放置规则)
+* [正确访问方式](#正确访问方式)
+* [3 Servlet映射和URL匹配](#3 Servlet映射和URL匹配)
 ## 1 文件放置规则
 当我们要编写一个Java Web项目时，我们将类编译后需要将项目移到Tomcat的webapps目录下。但是服务器对于文件的放置地点有明确的规定，以下是各种文件放置的位置:  
 
@@ -118,7 +121,7 @@ Conclusion:首先我们的url会通过完全匹配的方式进行匹配，发现
  <load-on-startup>1</load-on-startup>
  ```
 其中只要`<load-on-startup>`中的元素值大于0，那么我们servlet就会随着服务器的启动开始启动
-* 元素值的大小代表的启动的顺序，当有多个servlet随着服务器启东时，元素值越小越早启动
+* 元素值的大小代表的启动的顺序，当有多个servlet随着服务器启动时，元素值越小越早启动
 ```Java
 <servlet>
   <servlet-name>Beer</servlet-name>
