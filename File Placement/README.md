@@ -41,11 +41,43 @@ http://localhost:8080/examples/INF/web.xml
 ```
 当我们在浏览器中输入下面的URL时：
 ```Java
-http://localhost:8080/com/example/BeerSelectServlet/SelectBeer.do
+http://localhost:8080/com/example/BeerSelectServlet/Beer/SelectBeer.do
 ```
 ```Java
-http://localhost:8080/com/example/BeerSelectServlet/SelectBeer
+http://localhost:8080/com/example/BeerSelectServlet/Beer/SelectBeer
 ```
-我们的输出界面都是返回com/example/BeerSelectServlet所呈现的内容
+我们容器就会根据映射文件的输出界面都是返回com/example/BeerSelectServlet所呈现的内容
 
+## 4 根据URL查找对应Servlet
+当我们从浏览器输入一个URL时，我们的配置文件需要根据URL找到我们的servlet执行，下面是三种查找方式：
+* 完全匹配:当我们的URL和我们的配置文件中某一个servlet的映射的url-pattern一模一样时.完全匹配时url-pattern的属性以/开头，可以有扩展名
+```Java
+<servlet>
+  <servlet-name>Beer</servlet-name>
+  <servlet-class>com.example.BeerSelectServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Beer</servlet-name>
+  <url-pattern>/Beer/SelectBeer</url-pattern>
+</servlet-mapping>
+```
+此时输入的URL为：
+```Java
+http://localhost:8080/com/example/BeerSelectServlet/Beer/SelectBeer
+```
+
+* 目录匹配:url-pattern中的属性以/开头，以`*`结尾
+<servlet>
+  <servlet-name>Beer</servlet-name>
+  <servlet-class>com.example.BeerSelectServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Beer</servlet-name>
+  <url-pattern>/Beer/`*`</url-pattern>
+</servlet-mapping>
+```
+此时输入的URL为：
+```Java
+http://localhost:8080/com/example/BeerSelectServlet/Beer/SelectBeer
+```
 
