@@ -123,7 +123,7 @@ Conclusion:首先我们的url会通过完全匹配的方式进行匹配，发现
 <servlet>
   <servlet-name>Beer</servlet-name>
   <servlet-class>com.example.BeerSelectServlet</servlet-class>
-  <load-on-startup>1</load-on-startup>
+  <load-on-startup>3</load-on-startup>
 </servlet>
 <servlet-mapping>
   <servlet-name>Beer</servlet-name>
@@ -133,7 +133,7 @@ Conclusion:首先我们的url会通过完全匹配的方式进行匹配，发现
 <servlet>
   <servlet-name>Whisky</servlet-name>
   <servlet-class>com.example.WhiskySelectServlet</servlet-class>
-  <load-on-startup>3</load-on-startup>
+  <load-on-startup>1</load-on-startup>
 </servlet>
 <servlet-mapping>
   <servlet-name>Whisky</servlet-name>
@@ -149,10 +149,11 @@ Conclusion:首先我们的url会通过完全匹配的方式进行匹配，发现
   <servlet-name>Brandy</servlet-name>
   <url-pattern>Brandy/Select.do</url-pattern>
 </servlet-mapping>
-```  
+``` 
 从上面的配置文件我们可以看出，启动的顺序分别为
-
-Beer >> Brandy >> Whisky
+```Java
+Whisky >> Brandy >> Beer
+```
 
 * 当有多个servlet的`<load-on-startup>`的元素值相同时，元素值相同的servlet启动的顺序按照映射代码在配置文件中的位置由上至下执行，元素值不同的按照前面一条规则执行
 ```Java
