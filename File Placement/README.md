@@ -4,7 +4,7 @@
 * [Servlet映射和URL匹配](#Servlet映射和URL匹配)
 * [根据URL查找对应Servlet](#根据URL查找对应Servlet)
 * [Servlet初始化](#Servlet初始化)
-## 1 文件放置规则
+## 文件放置规则
 当我们要编写一个Java Web项目时，我们将类编译后需要将项目移到Tomcat的webapps目录下。但是服务器对于文件的放置地点有明确的规定，以下是各种文件放置的位置:  
 
 * 部署描述文件web.xml文件必须直接放置在webapps/MyWebProject/WEB_INF/的目录下
