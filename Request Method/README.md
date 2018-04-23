@@ -64,12 +64,12 @@ color=light
 从上面我们可以看到请求参数并不在URI中，而是在请求体中。
 * HttPServletRequest 中获取参数的几种方法
   * String getParameter(String name)
-    我们如果想要获得color这个参数的value，那么我们我们就需要执行下面的语句：
+    我们如果想要获得color这个参数的value，那么我们我们就需要执行下面的语句,执行后String c="light"
 ```Java
     String c = request.getParameter("color");
 ```
-    此时String c = "light";
-  * Enumeration getParameterNames()
-  * String[] getParameterValues()
-  *
+  * Enumeration getParameterNames()返回一个所有参数的枚举
+  * String[] getParameterValues(String name)返回所有参数对应的所有的值的一个字符串数组
+  * Map getParameterValues()返回一个以参数为Map键，参数值为Map值的Map
+## 属性
 
