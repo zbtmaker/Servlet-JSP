@@ -62,4 +62,5 @@ Cookie: JSESSIONID=ACCFF0F37B71C973D732059E3075F238
 color=light
 ```
 从上面我们可以看到请求参数并不在URI中，而是在请求体中。
-
+* HttPServletRequest 中获取参数的几种方法
+	
