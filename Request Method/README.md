@@ -65,9 +65,9 @@ color=light
 * HttPServletRequest 中获取参数的几种方法
   * String getParameter(String name)
     我们如果想要获得color这个参数的value，那么我们我们就需要执行下面的语句：
-    ```Java
+```Java
     String c = request.getParameter("color");
-    ```
+```
     此时String c = "light";
   * Enumeration getParameterNames()
   * String[] getParameterValues()
