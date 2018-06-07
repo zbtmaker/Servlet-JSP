@@ -29,6 +29,68 @@ Web.xml
 接着Tomcat创建一个新的线程，并生成相应的HttpServletRequest和HttpServletResponse实例对象并调用service(HttpServletRequest req,HttpServletResponse res)  
 
 service方法根据request获取的请求方法调用service中的doGet\doPost\doDelete\doHead方法
+HelloServlet实例
+```Java
+package example1;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class HelloServlet extends HttpServlet{
+	
+	private static final long serialVersionUID = 6549328204442040137L;
+	
+	private int time =0;//用于记录Servlet请求的次数
+	
+	public void doGet(HttpServletRequest request,HttpServletResponse response) throws IOException {
+		PrintWriter out = response.getWriter();
+		getServletConfig().getInitParameterNames();
+		
+	}
+	public void init() {
+		System.out.println("Initialize HelloServlet call init() method");
+	}
+	public void service(HttpServletRequest request,HttpServletResponse response) {
+		time ++;
+		System.out.println("call service() method times: "+ time);
+	}
+	public void destory() {
+		System.out.println("Close the Servlet");
+	}
+}
+```
+web.xml配置文件
+```Java
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		 xmlns="http://java.sun.com/xml/ns/javaee" 
+		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+		 version="2.5">
+  <servlet>
+  	<servlet-name>HelloServlet</servlet-name>
+  	<servlet-class>example1.HelloServlet</servlet-class>
+  </servlet> 
+  <servlet-mapping>
+  	<servlet-name>HelloServlet</servlet-name>
+  	<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+</web-app>
+```
+在地址栏中输入http://localhost:8080/Web_Example/hello
+显示的结果
+```Java
+Initialize HelloServlet call init() method
+call service() method times: 1
+call service() method times: 2
+call service() method times: 3
+call service() method times: 4
+call service() method times: 5
+```
+从上面的结果可以看到当第一次访问的时候就会调用init(),当刷新网页的时候每次都会调用service()，但并不是每次都会调用init()方法
 
 ## Get和Post方法区别
 
