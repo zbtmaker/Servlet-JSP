@@ -4,11 +4,11 @@
 如果我们想要创建一个HttP servlet，那么我们需要做的就是继承 HttpServlet。并且重写其中的doGet、doPost、doPut、doDelete、init、destroy等方法。
 ## HttPServlet、GenericServlet、Servlet之间的关系
 HttPServlet 继承GenericServlet,其中GenericServlet是一个抽象类;GenericServlet实现了Servlet接口和ServletConfig接口;  
-| 方法 | 方法描述 |
-| ---- | ---- |
-| init(ServletConfig cofig) | 容器在第一次请求或者是配置了Tomcat启动时初始化调用该方法 |
-| service(ServletRequest req,Servlet res) | 当请求到来时会将Request和Response传递给service方法，然后根据HTTP请求行中的方法确认调用方法 |
-| getServletConfig() | 如果我们在web.xml配置了初始化参数，那么此方法返回的ServletConfig就会包含设置的参数名-参数值 |
+| 方法 | 方法描述 |  
+| ---- | ---- |  
+| init(ServletConfig cofig) | 容器在第一次请求或者是配置了Tomcat启动时初始化调用该方法 |  
+| service(ServletRequest req,Servlet res) | 当请求到来时会将Request和Response传递给service方法，然后根据HTTP请求行中的方法确认调用方法 |  
+| getServletConfig() | 如果我们在web.xml配置了初始化参数，那么此方法返回的ServletConfig就会包含设置的参数名-参数值 |  
 
 
 
