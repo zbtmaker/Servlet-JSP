@@ -7,8 +7,8 @@ HttPServlet 继承GenericServlet,其中GenericServlet是一个抽象类;GenericS
 
 ## Http请求和web.xml配置文件
 Http请求  
-GET https://www.baidu.com/content-search.xml HTTP/1.1  
-Host: www.baidu.com  
+GET http://localhost:8080/Web_Example/hello HTTP/1.1  
+Host: localhost:8080  
 Connection: keep-alive  
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36  
 Accept-Encoding: gzip, deflate, br  
@@ -16,12 +16,13 @@ Accept-Language: zh-CN,zh;q=0.9
 我们来看第一行，称之为请求行 分为四个部分。当前主要分析请求行  
 传输方案：https表示应用层传输方案是采用HTTP协议  
 主机名：www.baidu.com这是一个域名，当客户端发出请求时，会首先由DNS服务器将域名进行解析转成IP地址    
-文件路径：/content-search.xml 就是文件所在的  
+文件路径：/Web_Example/hello 就是文件所在的  
 协议版本：HTTP/1.1 表示协议使用的版本  
-Web.xml  
+web.xml  
 如何根据Http请求找到相应的对应的Servlet处理请求并做出反应  
-第一步：首先根据<Servlet-mapping>中的<url-pattern>找到对应的<Servlet-name>.  
-第二步，由第一步的得到的Servlet-name然后去<Servlet>中的找到对应当前Servlet-name的Servlet-class。  
+第一步：首先根据request 中的文件路径/Web_Example/hello去<servlet-mapping>中的找到与之对应的<url-pattern>为/hello.  
+第二步：根据<servlet-mapping>中的<url-pattern> /hello找到对应的对应的<servlet-name>为HelloServlet  
+第二步，由第一步的得到<servlet-name>HelloServlet然后去<Servlet>中的找到对应当前<servlet-name>的<servlet-class>为example1.HelloServlet，因此将请求交给HelloServlet处理。  
   
 ## Servlet的生命周期
 用户第一次当前Servlet时，Tomcat容器会调用init()方法(init()方法会调用init(ServletConfig))初始化Servlet;init()方法只调用一次
@@ -93,6 +94,10 @@ call service() method times: 5
 从上面的结果可以看到当第一次访问的时候就会调用init(),当刷新网页的时候每次都会调用service()，但并不是每次都会调用init()方法
 
 ## Get和Post方法区别
+当我们提交表单需要修改后台数据时采用Post方法，Get方法主要是用于提交请求浏览网页  
+Get的请求的参数在请求行中，而Post方法提交的请求参数在消息体中  
+Get方法的URL限制条件为2048个字符，而Post方法无限制条件  
+Get方法是幂等的，而Post方法是非幂等的  
 
 ## ServletContext、ServletConfig(web.xml配置方法，所述范围，线程安全性，何时被创建)
 
